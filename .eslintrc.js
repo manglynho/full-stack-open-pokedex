@@ -64,6 +64,6 @@ module.exports = {
     "react/jsx-one-expression-per-line": [
       "error", { "allow": "single-child" }
     ],
-    "@testing-library/no-unnecessary-act" : "off"
+    "testing-library/no-unnecessary-act" : "off"
   }
 }
