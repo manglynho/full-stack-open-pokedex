@@ -1,3 +1,4 @@
+import process from 'process'
 const express = require('express')
 const app = express()
 
