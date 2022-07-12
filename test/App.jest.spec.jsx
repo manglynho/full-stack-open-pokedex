@@ -1,5 +1,3 @@
-/* eslint-disable testing-library/prefer-screen-queries */
-/* eslint-disable testing-library/no-unnecessary-act */
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import axiosMock from 'axios'
@@ -18,6 +16,7 @@ describe('<App />', () => {
         }
       }
     )
+    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(<App />)
     })
@@ -27,14 +26,17 @@ describe('<App />', () => {
 
   it('shows LoadingSpinner', async () => {
     axiosMock.get.mockResolvedValueOnce({})
+    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       const { getByAltText } = render(<App />)
+      // eslint-disable-next-line testing-library/prefer-screen-queries
       expect(getByAltText('Loading...')).toBeVisible()
     })
   })
 
   it('shows error', async () => {
     axiosMock.get.mockRejectedValueOnce(new Error())
+    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(<App />)
     })
