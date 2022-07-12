@@ -1,7 +1,7 @@
 import React from 'react'
-import { render, screen, act } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import axiosMock from 'axios'
-//import { act } from 'react-dom/test-utils'
+import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom/extend-expect'
 import App from '../src/App'
 
@@ -16,7 +16,6 @@ describe('<App />', () => {
         }
       }
     )
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(<App />)
     })
@@ -26,7 +25,6 @@ describe('<App />', () => {
 
   it('shows LoadingSpinner', async () => {
     axiosMock.get.mockResolvedValueOnce({})
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(<App />)
       expect(screen.getByAltText('Loading...')).toBeVisible()
@@ -35,7 +33,6 @@ describe('<App />', () => {
 
   it('shows error', async () => {
     axiosMock.get.mockRejectedValueOnce(new Error())
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(<App />)
     })

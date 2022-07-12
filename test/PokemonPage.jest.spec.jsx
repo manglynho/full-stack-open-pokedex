@@ -1,9 +1,9 @@
 import React from 'react'
-import { render, screen, act } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import axiosMock from 'axios'
-//import { act } from 'react-dom/test-utils'
+import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom/extend-expect'
 import PokemonPage from '../src/PokemonPage'
 
@@ -81,7 +81,6 @@ describe('<PokemonPage />', () => {
   it('should render abilities', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(
         <Router history={history}>
@@ -97,7 +96,6 @@ describe('<PokemonPage />', () => {
   it('should render stats', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(
         <Router history={history}>
@@ -112,7 +110,6 @@ describe('<PokemonPage />', () => {
   it('should render previous and next urls if they exist', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(
         <Router history={history}>
@@ -128,7 +125,6 @@ describe('<PokemonPage />', () => {
   it('should not render previous and next urls if none exist', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
       render(
         <Router history={history}>
