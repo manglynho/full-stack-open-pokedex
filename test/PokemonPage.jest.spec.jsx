@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import axiosMock from 'axios'
-import { act } from 'react-dom/test-utils'
+//import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom/extend-expect'
 import PokemonPage from '../src/PokemonPage'
 
@@ -82,13 +82,13 @@ describe('<PokemonPage />', () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      render(
-        <Router history={history}>
-          <PokemonPage />
-        </Router>
-      )
-    })
+    //await act(async () => {
+    render(
+      <Router history={history}>
+        <PokemonPage />
+      </Router>
+    )
+    //})
 
     expect(screen.getByText('adaptability')).toBeVisible()
     expect(screen.getByText('anticipation')).toBeVisible()
@@ -98,13 +98,13 @@ describe('<PokemonPage />', () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      render(
-        <Router history={history}>
-          <PokemonPage />
-        </Router>
-      )
-    })
+    //await act(async () => {
+    render(
+      <Router history={history}>
+        <PokemonPage />
+      </Router>
+    )
+    //})
 
     expect(screen.getByTestId('stats')).toHaveTextContent('hp55attack55')
   })
@@ -113,13 +113,13 @@ describe('<PokemonPage />', () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      render(
-        <Router history={history}>
-          <PokemonPage previous={previous} next={next} />
-        </Router>
-      )
-    })
+    //await act(async () => {
+    render(
+      <Router history={history}>
+        <PokemonPage previous={previous} next={next} />
+      </Router>
+    )
+    //})
 
     expect(screen.getByText('Previous')).toHaveAttribute('href', '/pokemon/ditto')
     expect(screen.getByText('Next')).toHaveAttribute('href', '/pokemon/vaporeon')
@@ -129,13 +129,13 @@ describe('<PokemonPage />', () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      render(
-        <Router history={history}>
-          <PokemonPage />
-        </Router>
-      )
-    })
+    //await act(async () => {
+    render(
+      <Router history={history}>
+        <PokemonPage />
+      </Router>
+    )
+    //})
 
     expect(screen.queryByText('Previous')).toBeNull()
     expect(screen.queryByText('Next')).toBeNull()

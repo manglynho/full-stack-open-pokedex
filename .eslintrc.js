@@ -52,6 +52,17 @@ module.exports = {
     ],
     "no-console": "error",
     "react/prop-types": 0,
-    "testing-library/no-unnecessary-act": ["off", {"isStrict": false}]
+    "react/jsx-indent": [
+      "error", 2
+    ],
+    "react/jsx-indent-props": [
+      "error", 2
+    ],
+    "react/jsx-filename-extension": [
+      "error", { "extensions": [".js", ".jsx"] }
+    ],
+    "react/jsx-one-expression-per-line": [
+      "error", { "allow": "single-child" }
+    ]
   }
 }

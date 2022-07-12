@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import axiosMock from 'axios'
-import { act } from 'react-dom/test-utils'
+//import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom/extend-expect'
 import App from '../src/App'
 
@@ -17,29 +17,28 @@ describe('<App />', () => {
       }
     )
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      render(<App />)
-    })
+    //await act(async () => {
+    render(<App />)
+    //})
     expect(axiosMock.get).toHaveBeenCalledTimes(1)
     expect(axiosMock.get).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/?limit=784')
   })
 
   it('shows LoadingSpinner', async () => {
     axiosMock.get.mockResolvedValueOnce({})
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      const { getByAltText } = render(<App />)
-      // eslint-disable-next-line testing-library/prefer-screen-queries
-      expect(getByAltText('Loading...')).toBeVisible()
-    })
+    //await act(async () => {
+    const { getByAltText } = render(<App />)
+    // eslint-disable-next-line testing-library/prefer-screen-queries
+    expect(getByAltText('Loading...')).toBeVisible()
+    //})
   })
 
   it('shows error', async () => {
     axiosMock.get.mockRejectedValueOnce(new Error())
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      render(<App />)
-    })
+    //await act(async () => {
+    render(<App />)
+    //})
     expect(screen.getByTestId('error')).toBeVisible()
   })
 })
