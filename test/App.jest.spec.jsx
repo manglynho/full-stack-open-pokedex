@@ -16,7 +16,6 @@ describe('<App />', () => {
         }
       }
     )
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     //await act(async () => {
     render(<App />)
     //})
@@ -35,7 +34,6 @@ describe('<App />', () => {
 
   it('shows error', async () => {
     axiosMock.get.mockRejectedValueOnce(new Error())
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     //await act(async () => {
     render(<App />)
     //})

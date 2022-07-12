@@ -81,7 +81,6 @@ describe('<PokemonPage />', () => {
   it('should render abilities', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     //await act(async () => {
     render(
       <Router history={history}>
@@ -97,7 +96,6 @@ describe('<PokemonPage />', () => {
   it('should render stats', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     //await act(async () => {
     render(
       <Router history={history}>
@@ -112,7 +110,6 @@ describe('<PokemonPage />', () => {
   it('should render previous and next urls if they exist', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     //await act(async () => {
     render(
       <Router history={history}>
@@ -128,7 +125,6 @@ describe('<PokemonPage />', () => {
   it('should not render previous and next urls if none exist', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
     //await act(async () => {
     render(
       <Router history={history}>
