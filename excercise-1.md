@@ -1,0 +1,9 @@
+For our Javascript/TypeScript development we can maek use of the know libraries for testing and linting (EsLint and Jest). Then depending on the CI platform we can trigger an action (a git hook or a github job) to force the excecution of the tests and also the lint before commits. An alternative for running builds could be the workflows like the provided for Node.js by Github.
+
+We can make use of CircleCI, Semaphore or TeamCity from JetBrains.
+
+We should select the use of the managed CI service, supported in the idea to focus on the process of building and delivery software and let the provider handle security ( but we must select a trusted provider ). Also we can easily increase hardware capabilites by demand and the provider will be responsible for the health of the servers, patching software and hardware performance.
+
+Regarding integrations, we understand that self hosted service has a lot of comunity solutions for integration, but in the end this solutions should be reviewed due to his quality and also depends heavily on the comunity for his maintenance. On the other hand a managed service handle platform/languague specialization( like the ones we can find on heroku ) however it's important to understand that our dependencies should not fall outside the ones supported by the provider because in that case our choices are going to be very limited. 
+
+An important note regarding pricing. At the start managed providers are cheaper but we have to understand that when we starts to scale prices are going to increase so we must anticipate the future scenarios in front of the provider pricing table. 
