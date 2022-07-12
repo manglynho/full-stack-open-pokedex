@@ -8,8 +8,7 @@ module.exports = {
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:testing-library/react"
+    "plugin:react/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
