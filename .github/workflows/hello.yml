@@ -12,3 +12,9 @@ jobs:
       - name: Say hello
         run: |
           echo "Hello World!"
+      - name: Show System Date
+        run: |
+          date
+      - name: Lsit Files
+        run: |
+          ls -l
