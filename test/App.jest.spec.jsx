@@ -26,9 +26,9 @@ describe('<App />', () => {
   it('shows LoadingSpinner', async () => {
     axiosMock.get.mockResolvedValueOnce({})
     //await act(async () => {
-    const { getByAltText } = render(<App />)
-    // eslint-disable-next-line testing-library/prefer-screen-queries
-    expect(getByAltText('Loading...')).toBeVisible()
+
+    render(<App />)
+    expect(screen.getByAltText('Loading...')).toBeVisible()
     //})
   })
 
