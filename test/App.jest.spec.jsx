@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 import axiosMock from 'axios'
 //import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom/extend-expect'
@@ -16,27 +16,29 @@ describe('<App />', () => {
         }
       }
     )
-    //await act(async () => {
-    render(<App />)
-    //})
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      render(<App />)
+    })
     expect(axiosMock.get).toHaveBeenCalledTimes(1)
     expect(axiosMock.get).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/?limit=784')
   })
 
   it('shows LoadingSpinner', async () => {
     axiosMock.get.mockResolvedValueOnce({})
-    //await act(async () => {
-
-    render(<App />)
-    expect(screen.getByAltText('Loading...')).toBeVisible()
-    //})
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      render(<App />)
+      expect(screen.getByAltText('Loading...')).toBeVisible()
+    })
   })
 
   it('shows error', async () => {
     axiosMock.get.mockRejectedValueOnce(new Error())
-    //await act(async () => {
-    render(<App />)
-    //})
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      render(<App />)
+    })
     expect(screen.getByTestId('error')).toBeVisible()
   })
 })
