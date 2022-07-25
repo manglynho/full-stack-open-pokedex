@@ -4,7 +4,8 @@ module.exports = {
     "es6": true,
     "jest/globals": true,
     "node": true,
-    "commonjs": true
+    "commonjs": true,
+    'cypress/globals': true
   },
   "extends": [
     "eslint:recommended",
@@ -64,6 +65,7 @@ module.exports = {
     "react/jsx-one-expression-per-line": [
       "error", { "allow": "single-child" }
     ],
-    "testing-library/no-unnecessary-act": ["off", {"isStrict": false}]
+    "testing-library/no-unnecessary-act": ["off", {"isStrict": false}],
+    "react-hooks/exhaustive-deps": 'off',
   }
 }

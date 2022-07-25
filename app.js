@@ -1,4 +1,4 @@
-import process from 'process'
+const process = require('process')
 const express = require('express')
 const app = express()
 
