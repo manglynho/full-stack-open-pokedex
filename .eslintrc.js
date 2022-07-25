@@ -4,12 +4,12 @@ module.exports = {
     "es6": true,
     "jest/globals": true,
     "node": true,
-    "commonjs": true,
-    "cypress/globals": true,
+    "commonjs": true
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:cypress/recommended",
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -19,7 +19,7 @@ module.exports = {
     "sourceType": "module"
   },
   "plugins": [
-    "react", "jest"
+    "react", "jest","cypress"
   ],
   "settings": {
     "react": {
@@ -67,5 +67,6 @@ module.exports = {
     ],
     "testing-library/no-unnecessary-act": ["off", {"isStrict": false}],
     "react-hooks/exhaustive-deps": 'off',
+    "jest/expect-expect": 'off',
   }
 }
