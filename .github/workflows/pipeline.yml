@@ -35,4 +35,5 @@ jobs:
           heroku_email: "manglynho@gmail.com"
           healthcheck: "https://reiner-pokedex-cicd.herokuapp.com/health"
           checkstring: "ok"
+          rollbackonhealthcheckfailed: true
         
